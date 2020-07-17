@@ -34,7 +34,7 @@ I had a problem with metadata_startup_script, found some help here - https://ser
 
 
 ## Folders
-I was also unable to test after I put the projects into folders, due to the quote issue. I removed the folder lines out of the code, so I knew the build would work. Below is what was removed. 
+I was also unable to test after I put the projects into folders, due to the quote issue. I removed the folder lines out of the code, so I knew the build would work. Below is what was removed. Replace the org id with your own. 
 
     resource "google_project" "host_project" {
         name            = "Host Project"
