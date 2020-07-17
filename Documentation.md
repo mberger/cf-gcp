@@ -99,3 +99,13 @@ getting base image names:
 service account user:
     terraform@michaelberger-terraform-admin.iam.gserviceaccount.com
 This was my starting point for the most part today:https://github.com/terraform-providers/terraform-provider-google/tree/master/examples/shared-vpc
+
+## Links 
+https://www.terraform.io/docs/providers/google/r/google_folder.html
+https://www.terraform.io/docs/providers/google/r/compute_instance_template.html
+https://www.terraform.io/docs/providers/google/r/google_project.html
+https://registry.terraform.io/modules/GoogleCloudPlatform/lb-http/google/1.0.9/examples/shared-vpc
+LOL - https://support.google.com/cloud/answer/7283050?hl=en
+https://stackoverflow.com/questions/57682483/terraform-gcp-startup-script-local-file-instead-of-inline
+https://cloud.google.com/vpc/docs/shared-vpc
+Also, a pdf that I downloaded called gcp-shared-vcp-deployment-guide.pdf from Palo Alto Networks. I don't find the link.
