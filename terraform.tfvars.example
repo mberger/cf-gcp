@@ -1,0 +1,4 @@
+region = "us-east1"
+region_zone = "us-east1-b"
+project_name = "randomprojectname"
+credentials_file_path = "~/.gcloud/Terraform.json"
