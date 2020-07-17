@@ -106,6 +106,7 @@ resource "google_compute_shared_vpc_service_project" "service_project_2" {
   ]
 }
 
+/* This section was left, but not able to test due to quote limitations. Commented out and fell back to the auto subnet subnets.
 # Create the hosted network.
 resource "google_compute_network" "shared_network" {
   name                    = "shared-network"
@@ -145,7 +146,9 @@ resource "google_compute_subnetwork" "subnet-4" {
   network       = google_compute_network.shared_network.name
   project       = google_project.host_project.project_id
 }
-/* This is the host project network that works. Keep this until the subnets are worked out...
+*/ 
+
+#This is the host project network that works. Keep this until the subnets are worked out...
 # Create the hosted network.
 resource "google_compute_network" "shared_network" {
   name                    = "shared-network"
@@ -157,7 +160,7 @@ resource "google_compute_network" "shared_network" {
     google_compute_shared_vpc_service_project.service_project_2,
   ]
 }
-*/ 
+ 
 
 # Allow the hosted network to be hit over ICMP, SSH, and HTTP.
 resource "google_compute_firewall" "shared_network" {
@@ -245,16 +248,6 @@ resource "google_compute_instance" "project_2_vm" {
   }
 
   metadata_startup_script = "VM_NAME=standalone\n${file("scripts/install-vm.sh")}"
-
-/* 
-metadata_startup_script = <<EOF
-VM1_EXT_IP=${google_compute_instance.project_1_vm.network_interface[0].access_config[0].nat_ip}
-ST_VM_EXT_IP=${google_compute_instance.standalone_project_vm.network_interface[0].access_config[0].nat_ip}
-VM1_INT_IP=${google_compute_instance.project_1_vm.network_interface[0].address}
-ST_VM_INT_IP=${google_compute_instance.standalone_project_vm.network_interface[0].address}
-${file("scripts/install-network-page.sh")}
-EOF
-*/
 
   network_interface {
     network = google_compute_network.shared_network.self_link
